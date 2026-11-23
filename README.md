@@ -1,6 +1,6 @@
 # LLM-Based Multi-Source Reasoning for Real-Time Detection of Evasive Web-Based Attacks
 
-Research artifacts and experimental reproduction repository for MS Thesis.
+Research artifacts and experimental reproduction repository.
 
 ## Phase 0: Baseline Reproduction (`InjectDefuser`)
 - **Base Work:** Koide et al. (2026), *Clouding the Mirror: Stealthy Prompt Injection Attacks Targeting LLM-based Phishing Detection* (`InjectDefuser`).
