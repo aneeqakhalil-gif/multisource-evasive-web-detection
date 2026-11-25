@@ -1,0 +1,38 @@
+[
+  {
+    "sample_id":"D-1",
+    "evasion_category":"Temporal Delayed Assembly",
+    "single_source_best":"Missed (0\/4 Caught)",
+    "multisource_verdict":"Caught",
+    "violated_invariants":"C1, C3, C4, C5",
+    "latency_ms":986.0,
+    "rationale":"The static page contains no form, yet a password input is injected 2.5\u202fs after load and submitted to https:\/\/auth.sandbox.local\/submit, a different origin. This mismatch between the visual intent and the actual data transmission (C1), the runtime mutation of the DOM (C3), the delayed credential injection (C4), and the cross\u2011origin network request (C5) collectively indicate evasive or malicious behavior."
+  },
+  {
+    "sample_id":"D-2",
+    "evasion_category":"Runtime String Decoding",
+    "single_source_best":"Missed (0\/4 Caught)",
+    "multisource_verdict":"Caught",
+    "violated_invariants":"C1, C3, C5",
+    "latency_ms":1254.4,
+    "rationale":"The static DOM declares a form action of '#', but the script immediately (12\u202fms) rewrites it to '\/verify-session', which is then used for a POST to https:\/\/auth.sandbox.local\/verify-session. This shows a mismatch between the visual intent and the actual transmission (C1), a runtime mutation of the form action (C3), and a destination origin that likely differs from the page\u2019s origin (C5). No Shadow\u2011DOM hiding or delayed credential injection is observed, so C2 and C4 are not violated."
+  },
+  {
+    "sample_id":"D-3",
+    "evasion_category":"Shadow DOM Encapsulation",
+    "single_source_best":"Missed (0\/4 Caught)",
+    "multisource_verdict":"Caught",
+    "violated_invariants":"C2",
+    "latency_ms":1479.9,
+    "rationale":"The authentication form is rendered inside a closed Shadow DOM, making it invisible to the outer DOM and potentially hiding its presence from standard inspection tools. This violates C2 (Rendered vs. Outer DOM Consistency). The network request to https:\/\/auth.sandbox.local\/callback with credentials is consistent with the form\u2019s intended purpose (C1), occurs promptly after attachment (C4), and no runtime DOM mutations are observed (C3). Without the page\u2019s origin, C5 cannot be conclusively evaluated, but the closed shadow root itself indicates a form of evasive encapsulation."
+  },
+  {
+    "sample_id":"D-4",
+    "evasion_category":"Cross-Origin Telemetry Mismatch",
+    "single_source_best":"Missed (0\/4 Caught)",
+    "multisource_verdict":"Caught",
+    "violated_invariants":"C1, C5",
+    "latency_ms":685.0,
+    "rationale":"The visible form (email input) is intended for user login, yet the onsubmit handler prevents normal submission and immediately sends a beacon to an external collector, violating C1. The HAR shows a POST to a different origin (external\u2011collector.sandbox.local) while the page originates from portal.sandbox.local, violating C5. No hidden Shadow DOM, no runtime DOM mutation, and no delayed credential injection are present, so C2, C3, and C4 remain intact."
+  }
+]

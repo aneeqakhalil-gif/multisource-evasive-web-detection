@@ -1,0 +1,10 @@
+{
+  "sample_id": "D-3",
+  "evasion_category": "Shadow DOM Encapsulation",
+  "static_code_trace": "const root = host.attachShadow({mode: 'closed'}); root.innerHTML = template;",
+  "initial_dom_trace": "<html><body><div id='auth-widget'></div></body></html>",
+  "runtime_dom_trace": "<html><body><div id='auth-widget'>#shadow-root (closed)</div></body></html>",
+  "network_har_trace": "POST https://auth.sandbox.local/callback [status: 200, payload: credentials]",
+  "timing_event_trace": "t=0ms: ShadowRootAttached(mode=closed) | t=40ms: FormSubmit",
+  "ground_truth": "evasive_attack"
+}

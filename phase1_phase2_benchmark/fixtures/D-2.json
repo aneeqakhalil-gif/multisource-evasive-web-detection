@@ -1,0 +1,10 @@
+{
+  "sample_id": "D-2",
+  "evasion_category": "Runtime String Decoding",
+  "static_code_trace": "const ep = atob('L3ZlcmlmeS1zZXNzaW9u'); document.forms[0].action = ep;",
+  "initial_dom_trace": "<html><body><form action='#'><input name='account_id'></form></body></html>",
+  "runtime_dom_trace": "<html><body><form action='/verify-session'><input name='account_id'></form></body></html>",
+  "network_har_trace": "POST https://auth.sandbox.local/verify-session [status: 200]",
+  "timing_event_trace": "t=0ms: ScriptEval | t=12ms: AttributeMutation(target=FORM, attr=action)",
+  "ground_truth": "evasive_attack"
+}

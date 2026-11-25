@@ -1,0 +1,10 @@
+{
+  "sample_id": "D-1",
+  "evasion_category": "Temporal Delayed Assembly",
+  "static_code_trace": "window.addEventListener('load', () => setTimeout(renderSlot, 2500));",
+  "initial_dom_trace": "<html><body><h2>Portal Notice</h2><div id='slot'></div></body></html>",
+  "runtime_dom_trace": "<div id='slot'><form action='/submit'><input type='password' name='user_token'></form></div>",
+  "network_har_trace": "POST https://auth.sandbox.local/submit [status: 200, payload: user_token]",
+  "timing_event_trace": "t=0ms: DOMContentLoaded | t=2500ms: MutationObserver(addedNodes=1, tag=FORM)",
+  "ground_truth": "evasive_attack"
+}

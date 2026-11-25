@@ -1,0 +1,5 @@
+sample_id,evasion_category,Code-Only,Network-Only,Static-DOM-Only,Timing-Only
+D-1,Temporal Delayed Assembly,Missed,Missed,Missed,Missed
+D-2,Runtime String Decoding,Missed,Missed,Missed,Missed
+D-3,Shadow DOM Encapsulation,Missed,Missed,Missed,Missed
+D-4,Cross-Origin Telemetry Mismatch,Missed,Missed,Missed,Missed

@@ -1,0 +1,130 @@
+[
+  {
+    "sample_id":"D-1",
+    "evasion_category":"Temporal Delayed Assembly",
+    "source":"Code-Only",
+    "verdict":"Missed",
+    "latency_ms":230.1,
+    "rationale":"The code simply delays a function call after page load, which is a common benign pattern."
+  },
+  {
+    "sample_id":"D-1",
+    "evasion_category":"Temporal Delayed Assembly",
+    "source":"Static-DOM-Only",
+    "verdict":"Missed",
+    "latency_ms":239.0,
+    "rationale":"The page contains only static HTML with no scripts or suspicious elements."
+  },
+  {
+    "sample_id":"D-1",
+    "evasion_category":"Temporal Delayed Assembly",
+    "source":"Network-Only",
+    "verdict":"Missed",
+    "latency_ms":373.7,
+    "rationale":"The POST to an auth endpoint returning a user token is typical of normal authentication."
+  },
+  {
+    "sample_id":"D-1",
+    "evasion_category":"Temporal Delayed Assembly",
+    "source":"Timing-Only",
+    "verdict":"Missed",
+    "latency_ms":373.4,
+    "rationale":"No clear malicious pattern from timing alone."
+  },
+  {
+    "sample_id":"D-2",
+    "evasion_category":"Runtime String Decoding",
+    "source":"Code-Only",
+    "verdict":"Missed",
+    "latency_ms":421.6,
+    "rationale":"The code merely decodes a base64 string to set a form action to a normal endpoint, with no malicious or evasive behavior evident."
+  },
+  {
+    "sample_id":"D-2",
+    "evasion_category":"Runtime String Decoding",
+    "source":"Static-DOM-Only",
+    "verdict":"Missed",
+    "latency_ms":315.4,
+    "rationale":"The form contains only a standard input field with no malicious or evasive indicators."
+  },
+  {
+    "sample_id":"D-2",
+    "evasion_category":"Runtime String Decoding",
+    "source":"Network-Only",
+    "verdict":"Missed",
+    "latency_ms":423.4,
+    "rationale":"The POST to a local auth endpoint returned 200, indicating a normal successful authentication rather than malicious activity."
+  },
+  {
+    "sample_id":"D-2",
+    "evasion_category":"Runtime String Decoding",
+    "source":"Timing-Only",
+    "verdict":"Missed",
+    "latency_ms":383.8,
+    "rationale":"A single script eval followed by a form action change is suspicious but not enough alone to confirm malicious or evasive activity."
+  },
+  {
+    "sample_id":"D-3",
+    "evasion_category":"Shadow DOM Encapsulation",
+    "source":"Code-Only",
+    "verdict":"Missed",
+    "latency_ms":398.4,
+    "rationale":"Standard shadow DOM usage, no malicious indicators."
+  },
+  {
+    "sample_id":"D-3",
+    "evasion_category":"Shadow DOM Encapsulation",
+    "source":"Static-DOM-Only",
+    "verdict":"Missed",
+    "latency_ms":209.7,
+    "rationale":"No malicious elements or scripts present."
+  },
+  {
+    "sample_id":"D-3",
+    "evasion_category":"Shadow DOM Encapsulation",
+    "source":"Network-Only",
+    "verdict":"Missed",
+    "latency_ms":470.0,
+    "rationale":"The POST appears to be a normal authentication callback returning credentials."
+  },
+  {
+    "sample_id":"D-3",
+    "evasion_category":"Shadow DOM Encapsulation",
+    "source":"Timing-Only",
+    "verdict":"Missed",
+    "latency_ms":360.3,
+    "rationale":"A closed ShadowRoot followed by a normal form submit is a common benign pattern and provides no evidence of malicious activity."
+  },
+  {
+    "sample_id":"D-4",
+    "evasion_category":"Cross-Origin Telemetry Mismatch",
+    "source":"Code-Only",
+    "verdict":"Missed",
+    "latency_ms":372.6,
+    "rationale":"The snippet only shows data being sent to an external URL, which could be benign telemetry."
+  },
+  {
+    "sample_id":"D-4",
+    "evasion_category":"Cross-Origin Telemetry Mismatch",
+    "source":"Static-DOM-Only",
+    "verdict":"Missed",
+    "latency_ms":274.4,
+    "rationale":"No malicious code or evasive patterns are present in the artifact."
+  },
+  {
+    "sample_id":"D-4",
+    "evasion_category":"Cross-Origin Telemetry Mismatch",
+    "source":"Network-Only",
+    "verdict":"Missed",
+    "latency_ms":535.4,
+    "rationale":"Origin mismatch alone does not confirm malicious activity."
+  },
+  {
+    "sample_id":"D-4",
+    "evasion_category":"Cross-Origin Telemetry Mismatch",
+    "source":"Timing-Only",
+    "verdict":"Missed",
+    "latency_ms":318.7,
+    "rationale":"A single cross\u2011origin beacon sent 800\u202fms after a page load is typical of normal analytics and provides no evidence of malicious activity."
+  }
+]
